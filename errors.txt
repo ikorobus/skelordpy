@@ -1,0 +1,11 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 15: expected an indented block
+        global blink_timer
+        ^
+    
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Wed Jan  4 04:33:49 2023
