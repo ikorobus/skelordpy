@@ -1,22 +1,22 @@
 ﻿# The script of the game goes in this file.
-default blink_timerb = renpy.random.randint(2, 4)
-default blink_timers = renpy.random.randint(2, 4)
+default blink_timer_a = renpy.random.randint(2, 4)
+default blink_timer_b = renpy.random.randint(3, 6)
 
 init python:
     def blinkb(trans, st, at):
-        global blink_timerb
+        global blink_timer_a
 
-        if st >= blink_timerb:
-            blink_timerb = renpy.random.randint(4, 8)
+        if st >= blink_timer_a:
+            blink_timer_a = renpy.random.randint(4, 8)
             return None
         else:
             return 0
 
     def blinks(trans, st, at):
-        global blink_timers
+        global blink_timer_b
 
-        if st >= blink_timers:
-            blink_timers = renpy.random.randint(6, 9)
+        if st >= blink_timer_b:
+            blink_timer_b = renpy.random.randint(6, 9)
             return None
         else:
             return 0
@@ -24,9 +24,9 @@ init python:
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define r = Character("RIBERTO")
-define b = Character("BAT")
-define s = Character("SPIDER")
+define r = Character("RIBERTO", who_bold = False, what_prefix = '"', what_suffix = '"')
+define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
+define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
 
 # The game starts here.
 
@@ -61,37 +61,56 @@ label start:
         0.2
         repeat
 
+    image rflushed:
+        "riberto flushed 01.png"
+        0.15
+        "riberto flushed 02.png"
+        0.15
+        "riberto flushed 03.png"
+        0.15
+        "riberto flushed 04.png"
+        0.15
+        "riberto flushed 05.png"
+        0.15
+        "riberto flushed 06.png"
+        0.15
+        "riberto flushed 07.png"
+        0.15
+        "riberto flushed 00.png"
+        3.95
+        repeat
+
     scene background
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show riberto flushed
+    show rflushed
     show mur at Position(xpos = 96, xanchor = 0, ypos = 19, yanchor = 0)    
     show ara at Position(xpos = 267, xanchor = 0, ypos = 5, yanchor = 0)
 
     # These display lines of dialogue.
 
-    r "..."
+    "..."
     r "Hello!"
     r "Aye, nice to meet you, chum!"
-    r "...\\ \n \" \" working? "
-    b "\"soy un murcielago\""
-    s "\"soy una araña\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
-    r "\"paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf\""
+    r "...\\ \n \% "
+    b "soy un murcielago"
+    s "soy una araña"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
 
     # This ends the game.
 
