@@ -59,7 +59,7 @@ define gui.text_font = "fonts/Wild-World.ttf"
 define gui.name_text_font = "fonts/Wild-World.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "fonts/Wild-World.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 10
@@ -68,10 +68,10 @@ define gui.text_size = 10
 define gui.name_text_size = 10
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 6
+define gui.interface_text_size = 10
 
 ## The size of labels in the game's user interface.
-define gui.label_text_size = 6
+define gui.label_text_size = 10
 
 ## The size of text on the notify screen.
 define gui.notify_text_size = 4
@@ -185,7 +185,7 @@ define gui.confirm_button_text_xalign = 0.5
 define gui.page_button_borders = Borders(3, 1, 3, 1)
 
 define gui.quick_button_borders = Borders(3, 1, 3, 0)
-define gui.quick_button_text_size = 4
+define gui.quick_button_text_size = 10
 define gui.quick_button_text_idle_color = gui.idle_small_color
 define gui.quick_button_text_selected_color = gui.accent_color
 
