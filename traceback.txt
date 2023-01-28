@@ -1,43 +1,38 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing the hover_color property of style choice_button_text:
-  File "renpy/common/00start.rpy", line 83, in _init_language
-    renpy.change_language(language)
-  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
-    __update()
-  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
-    renpy.style.rebuild()
-Exception: Color string '#dee0e3' must be 3, 4, 6, or 8 hex digits long.
+While running game code:
+  File "renpy/common/00start.rpy", line 192, in script
+    python:
+  File "renpy/common/00start.rpy", line 193, in <module>
+    renpy.execute_default_statement(True)
+  File "game/script.rpy", line 4, in set_default
+    default blink_timer_c = renpy.random.randint(3, )
+  File "game/script.rpy", line 4, in <module>
+    default blink_timer_c = renpy.random.randint(3, )
+TypeError: randint() takes exactly 3 arguments (2 given)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\main.py", line 660, in main
-    run(restart)
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\main.py", line 76, in run
-    renpy.translation.init_translation()
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\translation\__init__.py", line 583, in init_translation
-    renpy.store._init_language() # type: ignore
-  File "renpy/common/00start.rpy", line 83, in _init_language
-    renpy.change_language(language)
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\translation\__init__.py", line 672, in change_language
-    i()
-  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
-    __update()
-  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
-    renpy.style.rebuild()
-  File "style.pyx", line 796, in renpy.style.rebuild
-  File "style.pyx", line 789, in renpy.style.build_styles
-  File "style.pyx", line 710, in renpy.style.build_style
-  File "style.pyx", line 707, in renpy.style.build_style
-  File "gen3-static/style_hover_functions.pyx", line 227, in style_hover_functions.hover_color_property
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\color.py", line 167, in __new__
-    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
-Exception: Color string '#dee0e3' must be 3, 4, 6, or 8 hex digits long.
+  File "renpy/common/00start.rpy", line 192, in script
+    python:
+  File "renpy/ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "renpy/python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00start.rpy", line 193, in <module>
+    renpy.execute_default_statement(True)
+  File "renpy/exports.py", line 3797, in execute_default_statement
+    i.set_default(start)
+  File "game/script.rpy", line 4, in set_default
+    default blink_timer_c = renpy.random.randint(3, )
+  File "renpy/python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 4, in <module>
+    default blink_timer_c = renpy.random.randint(3, )
+TypeError: randint() takes exactly 3 arguments (2 given)
 
 Windows-10-10.0.19041 AMD64
-Ren'Py 8.0.3.22090809
+Ren'Py 7.5.3.22090809
 test01 1.0
-Sat Jan 28 02:03:37 2023
+Sat Jan 28 15:57:35 2023

@@ -1,6 +1,7 @@
 ﻿# The script of the game goes in this file.
 default blink_timer_a = renpy.random.randint(2, 4)
 default blink_timer_b = renpy.random.randint(3, 6)
+default blink_timer_c = renpy.random.randint(3, 3)
 
 init python:
     def blinkb(trans, st, at):
@@ -17,6 +18,15 @@ init python:
 
         if st >= blink_timer_b:
             blink_timer_b = renpy.random.randint(6, 9)
+            return None
+        else:
+            return 0
+
+    def blinkr(trans, st, at):
+        global blink_timer_c
+
+        if st >= blink_timer_c:
+            blink_timer_b = renpy.random.randint(2, 5)
             return None
         else:
             return 0
@@ -61,6 +71,17 @@ label start:
         0.2
         repeat
 
+    image ridle:
+        "riberto idle 01.png"
+        0.05
+        "riberto idle 02.png"
+        0.15
+        "riberto idle 03.png"
+        0.05
+        "riberto idle 00.png"
+        function blinkr
+        repeat
+
     image rflushed:
         "riberto flushed 01.png"
         0.15
@@ -94,11 +115,15 @@ label start:
 
     "..."
     "..."
+    show ridle with dissolve
     "..."
-    show rflushed with dissolve
     r "Hello!"
+    hide ridle
+    show rflushed
     r "Aye, nice to meet you, chum!"
     r "...\\ \n \% "
+    hide rflushed
+    show ridle
     b "soy un murcielago"
     s "soy una araña"
     r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"

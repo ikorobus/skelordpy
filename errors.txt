@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/gui.rpy", line 211: expected '=' not found.
-    define gui
-              ^
+File "game/script.rpy", line 4: expected '=' not found.
+    default blink_timer_c 
+                          ^
 
-Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Jan 28 02:02:24 2023
+Ren'Py Version: Ren'Py 7.5.3.22090809
+Sat Jan 28 15:57:26 2023
