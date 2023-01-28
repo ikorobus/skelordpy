@@ -26,10 +26,21 @@ init python:
         global blink_timer_c
 
         if st >= blink_timer_c:
-            blink_timer_b = renpy.random.randint(2, 5)
+            blink_timer_b = renpy.random.randint(2, 8)
             return None
         else:
             return 0
+
+    #Generate seperate audio channel from voice for beeps.
+    renpy.music.register_channel(name='beeps', mixer='voice')
+
+    #Character callback that generates the sound.
+    def e(event, **kwargs):
+        if event == "show": #When the text is shown
+            build_sentence(_last_say_what, "eileen")
+            renpy.sound.play("audio/output.wav", channel="beeps", loop=False)
+        elif event == "slow_done" or event == "end": #When the text is finished displaying or you open a menu.
+            renpy.sound.stop(channel="beeps")
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
