@@ -24,7 +24,6 @@ style hyperlink_text:
 style gui_text:
     properties gui.text_properties("interface")
 
-
 style button:
     properties gui.button_properties("button")
 
@@ -290,7 +289,12 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
+        #xpos gui.navigation_xpos
+        if main_menu:
+            xalign 0.5
+            yoffset 30
+        else:
+            xpos gui.navigation_xpos
         yalign 0.5
 
         spacing gui.navigation_spacing
@@ -307,7 +311,7 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Options") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -339,7 +343,9 @@ style navigation_button:
     properties gui.button_properties("navigation_button")
 
 style navigation_button_text:
+    size 10
     properties gui.button_text_properties("navigation_button")
+    xalign 0.5
 
 
 ## Main Menu screen ############################################################
@@ -385,7 +391,7 @@ style main_menu_frame:
     xsize 70
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    # background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
@@ -1188,53 +1194,54 @@ style confirm_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#skip-indicator
 
-screen skip_indicator():
 
-    zorder 100
-    style_prefix "skip"
-
-    frame:
-
-        hbox:
-            spacing 2
-
-            text _("Skipping")
-
-            text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
+#screen skip_indicator():
+#
+#    zorder 100
+#    style_prefix "skip"
+#
+#    frame:
+#
+#        hbox:
+#            spacing 2
+#
+#            text _("Skipping")
+#
+#            text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
+#            text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
+#            text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
 
 ## This transform is used to blink the arrows one after another.
-transform delayed_blink(delay, cycle):
-    alpha .5
+#transform delayed_blink(delay, cycle):
+#    alpha .5
+#
+#    pause delay
+#
+#    block:
+#        linear .2 alpha 1.0
+#        pause .2
+#        linear .2 alpha 0.5
+#        pause (cycle - .4)
+#        repeat
 
-    pause delay
 
-    block:
-        linear .2 alpha 1.0
-        pause .2
-        linear .2 alpha 0.5
-        pause (cycle - .4)
-        repeat
+#style skip_frame is empty
+#style skip_text is gui_text
+#style skip_triangle is skip_text
 
+#style skip_frame:
+#    ypos gui.skip_ypos
+#    background Frame("gui/skip.png", gui.skip_frame_borders, tile=gui.frame_tile)
+#    padding gui.skip_frame_borders.padding
 
-style skip_frame is empty
-style skip_text is gui_text
-style skip_triangle is skip_text
+#style skip_text:
+#    size gui.notify_text_size
 
-style skip_frame:
-    ypos gui.skip_ypos
-    background Frame("gui/skip.png", gui.skip_frame_borders, tile=gui.frame_tile)
-    padding gui.skip_frame_borders.padding
-
-style skip_text:
-    size gui.notify_text_size
-
-style skip_triangle:
-    ## We have to use a font that has the BLACK RIGHT-POINTING SMALL TRIANGLE
-    ## glyph in it.
-    font "DejaVuSans.ttf"
+#style skip_triangle:
+#    ## We have to use a font that has the BLACK RIGHT-POINTING SMALL TRIANGLE
+#    ## glyph in it.
+#    font "DejaVuSans.ttf"
 
 
 ## Notify screen ###############################################################

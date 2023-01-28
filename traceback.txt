@@ -1,37 +1,43 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 27, in script
-    define r = Character("RIBERTO", who_bold = false, what_prefix = '"', what_suffix = '"')
-  File "game/script.rpy", line 27, in script
-    define r = Character("RIBERTO", who_bold = false, what_prefix = '"', what_suffix = '"')
-  File "game/script.rpy", line 27, in <module>
-    define r = Character("RIBERTO", who_bold = false, what_prefix = '"', what_suffix = '"')
-NameError: name 'false' is not defined
+While processing the hover_color property of style choice_button_text:
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language)
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+Exception: Color string '#dee0e3' must be 3, 4, 6, or 8 hex digits long.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
     renpy.main.main()
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\main.py", line 558, in main
-    renpy.game.context().run(node)
-  File "game/script.rpy", line 27, in script
-    define r = Character("RIBERTO", who_bold = false, what_prefix = '"', what_suffix = '"')
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "game/script.rpy", line 27, in script
-    define r = Character("RIBERTO", who_bold = false, what_prefix = '"', what_suffix = '"')
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\ast.py", line 2441, in execute
-    self.set()
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\ast.py", line 2455, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 27, in <module>
-    define r = Character("RIBERTO", who_bold = false, what_prefix = '"', what_suffix = '"')
-NameError: name 'false' is not defined
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\main.py", line 660, in main
+    run(restart)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\main.py", line 76, in run
+    renpy.translation.init_translation()
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\translation\__init__.py", line 583, in init_translation
+    renpy.store._init_language() # type: ignore
+  File "renpy/common/00start.rpy", line 83, in _init_language
+    renpy.change_language(language)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\translation\__init__.py", line 672, in change_language
+    i()
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+  File "style.pyx", line 796, in renpy.style.rebuild
+  File "style.pyx", line 789, in renpy.style.build_styles
+  File "style.pyx", line 710, in renpy.style.build_style
+  File "style.pyx", line 707, in renpy.style.build_style
+  File "gen3-static/style_hover_functions.pyx", line 227, in style_hover_functions.hover_color_property
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\color.py", line 167, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string '#dee0e3' must be 3, 4, 6, or 8 hex digits long.
 
 Windows-10-10.0.19041 AMD64
 Ren'Py 8.0.3.22090809
 test01 1.0
-Sat Jan  7 02:41:00 2023
+Sat Jan 28 02:03:37 2023

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 66: expected 'simple_expression' not found.
-    pause 
-          ^
+File "game/gui.rpy", line 211: expected '=' not found.
+    define gui
+              ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Jan  5 05:18:45 2023
+Sat Jan 28 02:02:24 2023

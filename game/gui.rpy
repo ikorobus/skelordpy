@@ -28,14 +28,14 @@ define gui.idle_color = '#888888'
 
 ## The small color is used for small text, which needs to be brighter/darker to
 ## achieve the same effect.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#dee0e3'
 
 ## The color that is used for buttons and bars that are hovered.
 define gui.hover_color = '#d6636d'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.
-define gui.selected_color = '#ffffff'
+define gui.selected_color = '#dee0e3'
 
 ## The color used for a text button when it cannot be selected.
 define gui.insensitive_color = '#8888887f'
@@ -46,8 +46,8 @@ define gui.muted_color = '#510000'
 define gui.hover_muted_color = '#7a0000'
 
 ## The colors used for dialogue and menu choice text.
-define gui.text_color = '#ffffff'
-define gui.interface_text_color = '#ffffff'
+define gui.text_color = '#dee0e3'
+define gui.interface_text_color = '#dee0e3'
 
 
 ## Fonts and Font Sizes ########################################################
@@ -62,16 +62,16 @@ define gui.name_text_font = "fonts/Wild-World.ttf"
 define gui.interface_text_font = "fonts/Wild-World.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 10
+define gui.text_size = 8
 
 ## The size of character names.
-define gui.name_text_size = 10
+define gui.name_text_size = 8
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 10
+define gui.interface_text_size = 8
 
 ## The size of labels in the game's user interface.
-define gui.label_text_size = 10
+define gui.label_text_size = 8
 
 ## The size of text on the notify screen.
 define gui.notify_text_size = 4
@@ -82,9 +82,20 @@ define gui.title_text_size = 13
 
 ## Main and Game Menus #########################################################
 
+image main_menu_animated:
+    "gui/main_menu_00.png"
+    0.5
+    "gui/main_menu_01.png"
+    0.5
+    "gui/main_menu_02.png"
+    0.5
+    "gui/main_menu_03.png"
+    0.5
+    repeat
+
 ## The images used for the main and game menus.
-define gui.main_menu_background = "gui/main_menu.png"
-define gui.game_menu_background = "gui/game_menu.png"
+define gui.main_menu_background = "main_menu_animated"
+define gui.game_menu_background = "main_menu_animated"
 
 
 ## Dialogue ####################################################################
@@ -102,8 +113,8 @@ define gui.textbox_yalign = 1.0
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 60
-define gui.name_ypos = 0
+define gui.name_xpos = 62
+define gui.name_ypos = -14
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -127,7 +138,7 @@ define gui.namebox_tile = False
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
 define gui.dialogue_xpos = 67
-define gui.dialogue_ypos = 13
+define gui.dialogue_ypos = 0
 
 ## The maximum width of dialogue text, in pixels.
 define gui.dialogue_width = 186
@@ -185,8 +196,8 @@ define gui.confirm_button_text_xalign = 0.5
 define gui.page_button_borders = Borders(3, 1, 3, 1)
 
 define gui.quick_button_borders = Borders(3, 1, 3, 0)
-define gui.quick_button_text_size = 10
-define gui.quick_button_text_idle_color = gui.idle_small_color
+define gui.quick_button_text_size = 8
+define gui.quick_button_text_idle_color = '#a7a9ac'
 define gui.quick_button_text_selected_color = gui.accent_color
 
 ## You can also add your own customizations, by adding properly-named variables.
@@ -208,7 +219,7 @@ define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
 define gui.choice_button_text_idle_color = "#cccccc"
-define gui.choice_button_text_hover_color = "#ffffff"
+define gui.choice_button_text_hover_color = "#dee0e3"
 define gui.choice_button_text_insensitive_color = "#444444"
 
 
@@ -256,7 +267,7 @@ define gui.notify_ypos = 12
 define gui.choice_spacing = 6
 
 ## Buttons in the navigation section of the main and game menus.
-define gui.navigation_spacing = 1
+define gui.navigation_spacing = 2
 
 ## Controls the amount of spacing between preferences.
 define gui.pref_spacing = 3

@@ -86,21 +86,25 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show rflushed
+    
     show mur at Position(xpos = 96, xanchor = 0, ypos = 19, yanchor = 0)    
     show ara at Position(xpos = 267, xanchor = 0, ypos = 5, yanchor = 0)
 
     # These display lines of dialogue.
 
     "..."
+    "..."
+    "..."
+    show rflushed with dissolve
     r "Hello!"
     r "Aye, nice to meet you, chum!"
     r "...\\ \n \% "
     b "soy un murcielago"
     s "soy una araña"
     r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean turpis tellus, placerat eu dictum quis, 
+    mattis sed lorem. Proin imperdiet neque vitae rutrum consectetur. Phasellus molestie risus sed tellus consequat, 
+    elementum ullamcorper ex commodo. Vivamus ac facilisis odio."
     r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
     r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
     r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"

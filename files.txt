@@ -1,0 +1,206 @@
+gui.rpy
+gui.rpyc
+options.rpy
+options.rpyc
+screens.rpy
+screens.rpyc
+script.rpy
+script.rpyc
+cache\bytecode.rpyb
+cache\py3analysis.rpyb
+cache\screens.rpyb
+cache\shaders.txt
+fonts\License.txt
+fonts\Teeny-Tiny-Pixls.otf
+fonts\Wild-World.ttf
+fonts\pixel_operator.zip
+gui\frame.png
+gui\game_menu.png
+gui\main_menu.png
+gui\namebox.png
+gui\notify.png
+gui\nvl.png
+gui\skip.png
+gui\textbox.png
+gui\window_icon.png
+gui\00original backup\frame.png
+gui\00original backup\game_menu.png
+gui\00original backup\main_menu.png
+gui\00original backup\namebox.png
+gui\00original backup\notify.png
+gui\00original backup\nvl.png
+gui\00original backup\skip.png
+gui\00original backup\textbox.png
+gui\00original backup\window_icon.png
+gui\00original backup\bar\bottom.png
+gui\00original backup\bar\left.png
+gui\00original backup\bar\right.png
+gui\00original backup\bar\top.png
+gui\00original backup\button\check_foreground.png
+gui\00original backup\button\check_selected_foreground.png
+gui\00original backup\button\choice_hover_background.png
+gui\00original backup\button\choice_idle_background.png
+gui\00original backup\button\hover_background.png
+gui\00original backup\button\idle_background.png
+gui\00original backup\button\quick_hover_background.png
+gui\00original backup\button\quick_idle_background.png
+gui\00original backup\button\radio_foreground.png
+gui\00original backup\button\radio_selected_foreground.png
+gui\00original backup\button\slot_hover_background.png
+gui\00original backup\button\slot_idle_background.png
+gui\00original backup\overlay\confirm.png
+gui\00original backup\overlay\game_menu.png
+gui\00original backup\overlay\main_menu.png
+gui\00original backup\phone\nvl.png
+gui\00original backup\phone\textbox.png
+gui\00original backup\phone\bar\bottom.png
+gui\00original backup\phone\bar\left.png
+gui\00original backup\phone\bar\right.png
+gui\00original backup\phone\bar\top.png
+gui\00original backup\phone\button\check_foreground.png
+gui\00original backup\phone\button\check_selected_foreground.png
+gui\00original backup\phone\button\choice_hover_background.png
+gui\00original backup\phone\button\choice_idle_background.png
+gui\00original backup\phone\button\hover_background.png
+gui\00original backup\phone\button\idle_background.png
+gui\00original backup\phone\button\radio_foreground.png
+gui\00original backup\phone\button\radio_selected_foreground.png
+gui\00original backup\phone\button\slot_hover_background.png
+gui\00original backup\phone\button\slot_idle_background.png
+gui\00original backup\phone\overlay\game_menu.png
+gui\00original backup\phone\overlay\main_menu.png
+gui\00original backup\phone\scrollbar\horizontal_hover_bar.png
+gui\00original backup\phone\scrollbar\horizontal_hover_thumb.png
+gui\00original backup\phone\scrollbar\horizontal_idle_bar.png
+gui\00original backup\phone\scrollbar\horizontal_idle_thumb.png
+gui\00original backup\phone\scrollbar\vertical_hover_bar.png
+gui\00original backup\phone\scrollbar\vertical_hover_thumb.png
+gui\00original backup\phone\scrollbar\vertical_idle_bar.png
+gui\00original backup\phone\scrollbar\vertical_idle_thumb.png
+gui\00original backup\phone\slider\horizontal_hover_bar.png
+gui\00original backup\phone\slider\horizontal_hover_thumb.png
+gui\00original backup\phone\slider\horizontal_idle_bar.png
+gui\00original backup\phone\slider\horizontal_idle_thumb.png
+gui\00original backup\phone\slider\vertical_hover_bar.png
+gui\00original backup\phone\slider\vertical_hover_thumb.png
+gui\00original backup\phone\slider\vertical_idle_bar.png
+gui\00original backup\phone\slider\vertical_idle_thumb.png
+gui\00original backup\scrollbar\horizontal_hover_bar.png
+gui\00original backup\scrollbar\horizontal_hover_thumb.png
+gui\00original backup\scrollbar\horizontal_idle_bar.png
+gui\00original backup\scrollbar\horizontal_idle_thumb.png
+gui\00original backup\scrollbar\vertical_hover_bar.png
+gui\00original backup\scrollbar\vertical_hover_thumb.png
+gui\00original backup\scrollbar\vertical_idle_bar.png
+gui\00original backup\scrollbar\vertical_idle_thumb.png
+gui\00original backup\slider\horizontal_hover_bar.png
+gui\00original backup\slider\horizontal_hover_thumb.png
+gui\00original backup\slider\horizontal_idle_bar.png
+gui\00original backup\slider\horizontal_idle_thumb.png
+gui\00original backup\slider\vertical_hover_bar.png
+gui\00original backup\slider\vertical_hover_thumb.png
+gui\00original backup\slider\vertical_idle_bar.png
+gui\00original backup\slider\vertical_idle_thumb.png
+gui\bar\bottom.png
+gui\bar\left.png
+gui\bar\right.png
+gui\bar\top.png
+gui\button\check_foreground.png
+gui\button\check_selected_foreground.png
+gui\button\choice_hover_background.png
+gui\button\choice_idle_background.png
+gui\button\hover_background.png
+gui\button\idle_background.png
+gui\button\quick_hover_background.png
+gui\button\quick_idle_background.png
+gui\button\radio_foreground.png
+gui\button\radio_selected_foreground.png
+gui\button\slot_hover_background.png
+gui\button\slot_idle_background.png
+gui\overlay\confirm.png
+gui\overlay\game_menu.png
+gui\overlay\main_menu.png
+gui\phone\nvl.png
+gui\phone\textbox.png
+gui\phone\bar\bottom.png
+gui\phone\bar\left.png
+gui\phone\bar\right.png
+gui\phone\bar\top.png
+gui\phone\button\check_foreground.png
+gui\phone\button\check_selected_foreground.png
+gui\phone\button\choice_hover_background.png
+gui\phone\button\choice_idle_background.png
+gui\phone\button\hover_background.png
+gui\phone\button\idle_background.png
+gui\phone\button\radio_foreground.png
+gui\phone\button\radio_selected_foreground.png
+gui\phone\button\slot_hover_background.png
+gui\phone\button\slot_idle_background.png
+gui\phone\overlay\game_menu.png
+gui\phone\overlay\main_menu.png
+gui\phone\scrollbar\horizontal_hover_bar.png
+gui\phone\scrollbar\horizontal_hover_thumb.png
+gui\phone\scrollbar\horizontal_idle_bar.png
+gui\phone\scrollbar\horizontal_idle_thumb.png
+gui\phone\scrollbar\vertical_hover_bar.png
+gui\phone\scrollbar\vertical_hover_thumb.png
+gui\phone\scrollbar\vertical_idle_bar.png
+gui\phone\scrollbar\vertical_idle_thumb.png
+gui\phone\slider\horizontal_hover_bar.png
+gui\phone\slider\horizontal_hover_thumb.png
+gui\phone\slider\horizontal_idle_bar.png
+gui\phone\slider\horizontal_idle_thumb.png
+gui\phone\slider\vertical_hover_bar.png
+gui\phone\slider\vertical_hover_thumb.png
+gui\phone\slider\vertical_idle_bar.png
+gui\phone\slider\vertical_idle_thumb.png
+gui\scrollbar\horizontal_hover_bar.png
+gui\scrollbar\horizontal_hover_thumb.png
+gui\scrollbar\horizontal_idle_bar.png
+gui\scrollbar\horizontal_idle_thumb.png
+gui\scrollbar\vertical_hover_bar.png
+gui\scrollbar\vertical_hover_thumb.png
+gui\scrollbar\vertical_idle_bar.png
+gui\scrollbar\vertical_idle_thumb.png
+gui\slider\horizontal_hover_bar.png
+gui\slider\horizontal_hover_thumb.png
+gui\slider\horizontal_idle_bar.png
+gui\slider\horizontal_idle_thumb.png
+gui\slider\vertical_hover_bar.png
+gui\slider\vertical_hover_thumb.png
+gui\slider\vertical_idle_bar.png
+gui\slider\vertical_idle_thumb.png
+images\bat blink.png
+images\bat.png
+images\bg00.png
+images\bg01.png
+images\bg02.png
+images\bg03.png
+images\riberto flushed 00.png
+images\riberto flushed 01.png
+images\riberto flushed 02.png
+images\riberto flushed 03.png
+images\riberto flushed 04.png
+images\riberto flushed 05.png
+images\riberto flushed 06.png
+images\riberto flushed 07.png
+images\riberto flushed.png
+images\spi blink.png
+images\spi.png
+images\textbox.png
+saves\1-1-LT1.save
+saves\_reload-2-LT1.save
+saves\auto-1-LT1.save
+saves\auto-10-LT1.save
+saves\auto-2-LT1.save
+saves\auto-3-LT1.save
+saves\auto-4-LT1.save
+saves\auto-5-LT1.save
+saves\auto-6-LT1.save
+saves\auto-7-LT1.save
+saves\auto-8-LT1.save
+saves\auto-9-LT1.save
+saves\navigation.json
+saves\persistent
+tl\None\common.rpym
+tl\None\common.rpymc
