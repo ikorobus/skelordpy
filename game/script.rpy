@@ -35,7 +35,7 @@ init python:
     renpy.music.register_channel(name='beeps', mixer='voice')
 
     #Character callback that generates the sound.
-    def e(event, **kwargs):
+    def r(event, **kwargs):
         if event == "show": #When the text is shown
             build_sentence(_last_say_what, "eileen")
             renpy.sound.play("audio/output.wav", channel="beeps", loop=False)
@@ -45,7 +45,7 @@ init python:
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define r = Character("RIBERTO", who_bold = False, what_prefix = '"', what_suffix = '"')
+define r = Character("RIBERTO", who_bold = False, what_prefix = '"', what_suffix = '"', callback = r)
 define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
 define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
 

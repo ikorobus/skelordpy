@@ -1,38 +1,39 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 192, in script
-    python:
-  File "renpy/common/00start.rpy", line 193, in <module>
-    renpy.execute_default_statement(True)
-  File "game/script.rpy", line 4, in set_default
-    default blink_timer_c = renpy.random.randint(3, )
-  File "game/script.rpy", line 4, in <module>
-    default blink_timer_c = renpy.random.randint(3, )
-TypeError: randint() takes exactly 3 arguments (2 given)
+  File "game/script.rpy", line 131, in script
+    r "Hello!"
+  File "game/script.rpy", line 40, in r
+    build_sentence(_last_say_what, "RIBERTO")
+  File "game/speak.rpy", line 55, in build_sentence
+    new_segment = AudioSegment.from_wav(config.gamedir+"/audio/beeps/"+name+"/{}.wav".format(char))
+IOError: [Errno 2] No such file or directory: u"E:\\Programas\\OneDrive - Universidad Complutense de Madrid (UCM)\\Desarrollo\\Projects\\Ren'Py\\test01\\game/audio/beeps/RIBERTO/dot.wav"
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 192, in script
-    python:
-  File "renpy/ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "renpy/python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00start.rpy", line 193, in <module>
-    renpy.execute_default_statement(True)
-  File "renpy/exports.py", line 3797, in execute_default_statement
-    i.set_default(start)
-  File "game/script.rpy", line 4, in set_default
-    default blink_timer_c = renpy.random.randint(3, )
-  File "renpy/python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 4, in <module>
-    default blink_timer_c = renpy.random.randint(3, )
-TypeError: randint() takes exactly 3 arguments (2 given)
+  File "game/script.rpy", line 131, in script
+    r "Hello!"
+  File "renpy/ast.py", line 921, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "renpy/exports.py", line 1373, in say
+    who(what, *args, **kwargs)
+  File "renpy/character.py", line 1266, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "renpy/character.py", line 930, in do_display
+    **display_args)
+  File "renpy/character.py", line 602, in display_say
+    c("show", interact=interact, type=type, **cb_args)
+  File "game/script.rpy", line 40, in r
+    build_sentence(_last_say_what, "RIBERTO")
+  File "game/speak.rpy", line 55, in build_sentence
+    new_segment = AudioSegment.from_wav(config.gamedir+"/audio/beeps/"+name+"/{}.wav".format(char))
+  File "pydub/audio_segment.py", line 750, in from_wav
+  File "pydub/audio_segment.py", line 622, in from_file
+  File "pydub/utils.py", line 60, in _fd_or_path_or_tempfile
+IOError: [Errno 2] No such file or directory: u"E:\\Programas\\OneDrive - Universidad Complutense de Madrid (UCM)\\Desarrollo\\Projects\\Ren'Py\\test01\\game/audio/beeps/RIBERTO/dot.wav"
 
 Windows-10-10.0.19041 AMD64
 Ren'Py 7.5.3.22090809
 test01 1.0
-Sat Jan 28 15:57:35 2023
+Sat Jan 28 17:54:55 2023
