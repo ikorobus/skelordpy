@@ -1,19 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 131, in script
-    r "Hello!"
-  File "game/script.rpy", line 40, in r
-    build_sentence(_last_say_what, "RIBERTO")
-  File "game/speak.rpy", line 55, in build_sentence
-    new_segment = AudioSegment.from_wav(config.gamedir+"/audio/beeps/"+name+"/{}.wav".format(char))
-IOError: [Errno 2] No such file or directory: u"E:\\Programas\\OneDrive - Universidad Complutense de Madrid (UCM)\\Desarrollo\\Projects\\Ren'Py\\test01\\game/audio/beeps/RIBERTO/dot.wav"
+While processing text tag {color='#e35460'} in u'"I\'m #~@!?. Ye can just call me {color=\'#e35460\'}RIBERTO{/color}."'.:
+  File "game/script.rpy", line 162, in script
+    w "I'm #~@!?. Ye can just call me {color='#e35460'}RIBERTO{/color}."
+Exception: Color string u"'#e35460'" must be 3, 4, 6, or 8 hex digits long.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 131, in script
-    r "Hello!"
+  File "game/script.rpy", line 162, in script
+    w "I'm #~@!?. Ye can just call me {color='#e35460'}RIBERTO{/color}."
   File "renpy/ast.py", line 921, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "renpy/exports.py", line 1373, in say
@@ -22,18 +18,57 @@ Full traceback:
     self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
   File "renpy/character.py", line 930, in do_display
     **display_args)
-  File "renpy/character.py", line 602, in display_say
-    c("show", interact=interact, type=type, **cb_args)
-  File "game/script.rpy", line 40, in r
-    build_sentence(_last_say_what, "RIBERTO")
-  File "game/speak.rpy", line 55, in build_sentence
-    new_segment = AudioSegment.from_wav(config.gamedir+"/audio/beeps/"+name+"/{}.wav".format(char))
-  File "pydub/audio_segment.py", line 750, in from_wav
-  File "pydub/audio_segment.py", line 622, in from_file
-  File "pydub/utils.py", line 60, in _fd_or_path_or_tempfile
-IOError: [Errno 2] No such file or directory: u"E:\\Programas\\OneDrive - Universidad Complutense de Madrid (UCM)\\Desarrollo\\Projects\\Ren'Py\\test01\\game/audio/beeps/RIBERTO/dot.wav"
+  File "renpy/character.py", line 666, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "renpy/display/core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "renpy/display/core.py", line 3912, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "renpy/display/core.py", line 2605, in draw_screen
+    renpy.config.screen_height,
+  File "render.pyx", line 495, in renpy.display.render.render_screen
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "renpy/display/layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "renpy/display/layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "renpy/display/layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "renpy/display/screen.py", line 704, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "renpy/display/layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "renpy/display/layout.py", line 1337, in render
+    st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "renpy/display/layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "renpy/text/text.py", line 2109, in render
+    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
+  File "renpy/text/text.py", line 627, in __init__
+    self.paragraphs = self.segment(text.tokens, style, renders, text)
+  File "renpy/text/text.py", line 1195, in segment
+    push().color = renpy.easy.color(value)
+  File "renpy/color.py", line 167, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string u"'#e35460'" must be 3, 4, 6, or 8 hex digits long.
 
 Windows-10-10.0.19041 AMD64
 Ren'Py 7.5.3.22090809
 test01 1.0
-Sat Jan 28 17:54:55 2023
+Mon Jan 30 01:06:43 2023

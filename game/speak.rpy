@@ -78,28 +78,28 @@ init python:
         numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
         for word in numbers:
             if word == "1":
-                sentence = sentence.replace(word, "one")
+                sentence = sentence.replace(word, "uno")
             if word == "2":
-                sentence = sentence.replace(word, "two")
+                sentence = sentence.replace(word, "dos")
             if word == "3":
-                sentence = sentence.replace(word, "three")
+                sentence = sentence.replace(word, "tres")
             if word == "4":
-                sentence = sentence.replace(word, "four")
+                sentence = sentence.replace(word, "cuatro")
             if word == "5":
-                sentence = sentence.replace(word, "five")
+                sentence = sentence.replace(word, "cinco")
             if word == "6":
-                sentence = sentence.replace(word, "six")
+                sentence = sentence.replace(word, "seis")
             if word == "7":
-                sentence = sentence.replace(word, "seven")
+                sentence = sentence.replace(word, "siete")
             if word == "8":
-                sentence = sentence.replace(word, "eight")
+                sentence = sentence.replace(word, "ocho")
             if word == "9":
-                sentence = sentence.replace(word, "nine")
+                sentence = sentence.replace(word, "nueve")
             if word == "0":
-                sentence = sentence.replace(word, "zero")
+                sentence = sentence.replace(word, "cero")
         return sentence
 
     #Speeds up the playback to make it sound more garbled and less decipherable.
     def change_playback_speed(sound, speed_change):
-        export = sound.speedup(6.0, 200, 30)
+        export = sound.speedup(6.0, 100, 30)
         return export

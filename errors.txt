@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 4: expected '=' not found.
-    default blink_timer_c 
-                          ^
+The label start is defined twice, at File "game/example.rpy", line 80:
+label start:
+and File "game/script.rpy", line 111:
+label start:
+
 
 Ren'Py Version: Ren'Py 7.5.3.22090809
-Sat Jan 28 15:57:26 2023
+Mon Jan 30 01:13:57 2023
