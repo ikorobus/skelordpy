@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label start is defined twice, at File "game/example.rpy", line 80:
-label start:
-and File "game/script.rpy", line 111:
-label start:
+File "game/script.rpy", line 220: play requires a channel
+    play "audio/fire.wav"
+         ^
 
-
-Ren'Py Version: Ren'Py 7.5.3.22090809
-Mon Jan 30 01:13:57 2023
+Ren'Py Version: Ren'Py 8.1.1.23060707
+Mon Aug 14 02:17:15 2023

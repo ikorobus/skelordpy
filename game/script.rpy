@@ -8,9 +8,74 @@ default blink_timer_c = renpy.random.randint(3, 3)
 ##light taps, smaller intervals
 #define sounds = ['audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
 #both taps
-define sounds = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg', 'audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
+#define sounds = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg', 'audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
+define sounds = ['audio/dot.wav']
 
 init python:
+    renpy.music.register_channel("ambient", "music")
+    #region sound while speaking
+    def type_sound(event, interact=True, **kwargs):
+        if not interact:
+            return
+
+        if event == "show": #if text's being written by character, spam typing sounds until the text ends
+            renpy.sound.play(renpy.random.choice(sounds))
+            for i in range(50):
+                renpy.sound.queue(renpy.random.choice(sounds))
+
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop()
+
+        #region
+            #Generate seperate audio channel from voice for beeps.
+        #renpy.music.register_channel(name='beeps', mixer='voice')
+
+        #Character callback that generates the sound.
+        #def rv(event, **kwargs):
+        #    if event == "show": #When the text is shown
+        #        build_sentence(_last_say_what, "eileen")
+        #        renpy.sound.play("audio/output.wav", channel="beeps", loop=False)
+        #    elif event == "slow_done" or event == "end": #When the text is finished displaying or you open a menu.
+        #        renpy.sound.stop(channel="beeps")
+        #endregion
+    #endregion
+
+    #region lip flap when speaking
+    # This is set to the name of the character that is speaking, or
+    # None if no character is currently speaking.
+    speaking = None
+  
+    # This returns speaking if the character is speaking, and done if the
+    # character is not.
+    def while_speaking(name, speak_d, done_d, st, at):
+        if speaking == name:
+            return speak_d, .1
+        else:
+            return done_d, None
+  
+    # Curried form of the above.
+    curried_while_speaking = renpy.curry(while_speaking)
+  
+    # Displays speaking when the named character is speaking, and done otherwise.
+    def WhileSpeaking(name, speaking_d, done_d = Null()):
+        return DynamicDisplayable(curried_while_speaking(name, speaking_d, done_d))
+  
+    # This callback maintains the speaking variable.
+    def speaker_callback(name, event, **kwargs):
+        global speaking
+       
+        if event == "show":
+            speaking = name
+        elif event == "slow_done":
+            speaking = None
+        elif event == "end":
+            speaking = None
+  
+    # Curried form of the same.
+    speaker = renpy.curry(speaker_callback)
+    #endregion
+
+    #region blinking randomly
     def blinkb(trans, st, at):
         global blink_timer_a
 
@@ -37,58 +102,7 @@ init python:
             return None
         else:
             return 0
-
-    def type_sound(event, interact=True, **kwargs):
-        if not interact:
-            return
-
-        if event == "show": #if text's being written by character, spam typing sounds until the text ends
-            renpy.sound.play(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            renpy.sound.queue(renpy.random.choice(sounds))
-            #dumb way to do it but it works, dunno if it causes memory leaks but it's almost 6AM :v
-
-        elif event == "slow_done" or event == "end":
-            renpy.sound.stop()
-
-    #Generate seperate audio channel from voice for beeps.
-    #renpy.music.register_channel(name='beeps', mixer='voice')
-
-    #Character callback that generates the sound.
-    #def rv(event, **kwargs):
-    #    if event == "show": #When the text is shown
-    #        build_sentence(_last_say_what, "eileen")
-    #        renpy.sound.play("audio/output.wav", channel="beeps", loop=False)
-    #    elif event == "slow_done" or event == "end": #When the text is finished displaying or you open a menu.
-    #        renpy.sound.stop(channel="beeps")
+    #endregion
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -97,13 +111,12 @@ define r = Character("RIBERTO",
             who_bold = False, 
             what_prefix = '"', 
             what_suffix = '"',
-            callback = type_sound, 
+            callback = speaker("riberto"), 
             ctc = "ctc_anchored", 
             ctc_position = "fixed")
 
-#callback = rv,
-
-define w = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
+define w = Character("???", what_prefix = '"', what_suffix = '"', callback = speaker("riberto"), ctc = "ctc_anchored", ctc_position = "fixed")
+define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
 #define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
 #define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
 
@@ -111,6 +124,9 @@ define w = Character("???", what_prefix = '"', what_suffix = '"', callback = typ
 
 label start:
 
+    play music "audio/fire.ogg"
+    #play ambient "audio/raintweak.ogg"
+    play ambient "audio/rainece.ogg"
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
@@ -180,6 +196,23 @@ label start:
         3.95
         repeat
 
+    image ribertoidle = Composite(
+        (91, 166),
+        (0,0), "riberto blank.png",
+        (0,0), WhileSpeaking("riberto", "rjawmove", "riberto jaw move 01.png"),
+        )
+
+    image rjawmove:
+        "riberto jaw move 01.png"
+        0.1
+        "riberto jaw move 02.png"
+        0.1
+        "riberto jaw move 03.png"
+        0.1
+        "riberto jaw move 02.png"
+        0.1
+        repeat
+
     scene background
 
     # This shows a character sprite. A placeholder is used, but you can
@@ -191,25 +224,27 @@ label start:
 
     # These display lines of dialogue.
 
-    w "..."
-    w "Hmm..."
-    w "..."
-    w "...eh?"
-    show ridle with dissolve
+    y "..."
+    y "Hmm..."
+    y "..."
+    y "...eh?"
+    show ribertoidle
+    show ridle
+    with dissolve
     w "Hey!"
     w "You there!"
     w "Are you okay?"
     w "What are you doing here?"
-    w "..."
+    y "..."
     w "You don't look from around here. So squishy..."
-    w "..."
-    w "..."
-    w "..."
+    y "..."
+    y "..."
+    y "..."
     w "Not much for words, aye?"
     w "It's okay."
     w "You're not the first one to get lost in here, and surely not the last."
     w "But do not fret, I'll get you outta here."
-    w "I'm #~@!?. Ye can just call me {color=#e35460}RIBERTO{/color}."
+    w "I'm #%%\\!^. Ye can just call me {color=#e35460}RIBERTO{/color}."
     r "I'll... uh... I'll just call you chum. Fits you pretty well."
     hide ridle
     show rflushed
@@ -220,7 +255,7 @@ label start:
     r "There is one thing you need to know first, though."
     r "This dungeon we're trapped in... It's 'magical', y'see."
     r "Actually, the only one stuck in here is you!"
-    r "I'm this dungeon's Lord."
+    r "I'm this dungeon's lord."
     hide ridle
     show rflushed
     r "Self-proclaimed, must confess. Left living here for all eternity. "
@@ -233,11 +268,15 @@ label start:
     r "Not until its user desires to. This vault is ever-changing."
     r "And I may be a cool, humerous and a bit of a bonehead, but I'm not its user."
     r "That's you, chum!"
-    r "The reason why you're here with me may be something you been struggling with. Emotions, life and the like."
+    r "The reason why you're here with me may be something you been struggling with." 
+    r "Emotions, life and the like."
     r "You humans are complex beings, yet so powerful."
-    r "Or maybe it was purely by chance. The whim of fate."
-    r "Anyhow, to catalyze your feelings into an opening I'll need you to tell me about them."
+    r "Or maybe it was purely by chance."
+    r "The whim of fate."
+    r "Anyhow,"
+    r "To catalyze your feelings into an opening I'll need you to tell me about them."
 
+    r ""
     r "...\\ \n \% "
 
     # This ends the game.
