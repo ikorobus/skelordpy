@@ -13,6 +13,7 @@ define sounds = ['audio/dot.wav']
 
 init python:
     renpy.music.register_channel("ambient", "music")
+
     #region sound while speaking
     def type_sound(event, interact=True, **kwargs):
         if not interact:
@@ -103,6 +104,9 @@ init python:
         else:
             return 0
     #endregion
+
+    def clamp(num, min_value, max_value):
+        return max(min(num, max_value), min_value)
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -196,7 +200,7 @@ label start:
         3.95
         repeat
 
-    image ribertoidle = Composite(
+    image rjaw = Composite(
         (91, 166),
         (0,0), "riberto blank.png",
         (0,0), WhileSpeaking("riberto", "rjawmove", "riberto jaw move 01.png"),
@@ -204,13 +208,13 @@ label start:
 
     image rjawmove:
         "riberto jaw move 01.png"
-        0.1
+        clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 02.png"
-        0.1
+        clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 03.png"
-        0.1
+        clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 02.png"
-        0.1
+        clamp(3/preferences.text_cps, 0.05, 5)
         repeat
 
     scene background
@@ -228,7 +232,7 @@ label start:
     y "Hmm..."
     y "..."
     y "...eh?"
-    show ribertoidle
+    show rjaw
     show ridle
     with dissolve
     w "Hey!"

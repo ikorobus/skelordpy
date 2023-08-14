@@ -2,9 +2,8 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 220: play requires a channel
-    play "audio/fire.wav"
-         ^
+File "game/script.rpy", line 208: is not terminated with a newline. (Check strings and parenthesis.)
+            3/(preferences.text_cps
 
 Ren'Py Version: Ren'Py 8.1.1.23060707
-Mon Aug 14 02:17:15 2023
+Mon Aug 14 16:30:44 2023
