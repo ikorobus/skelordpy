@@ -9,7 +9,9 @@ default blink_timer_c = renpy.random.randint(3, 3)
 #define sounds = ['audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
 #both taps
 #define sounds = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg', 'audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
-define sounds = ['audio/dot.wav']
+
+#define sounds = ['audio/dot.wav']
+define sounds = ['audio/xylophone/x1.ogg', 'audio/xylophone/x2.ogg', 'audio/xylophone/x3.ogg', 'audio/xylophone/x4.ogg', 'audio/xylophone/x5.ogg', 'audio/xylophone/x6.ogg', 'audio/xylophone/x7.ogg', 'audio/xylophone/x8.ogg', 'audio/xylophone/x9.ogg', 'audio/xylophone/x10.ogg']
 
 init python:
     renpy.music.register_channel("ambient", "music")
@@ -61,7 +63,7 @@ init python:
             renpy.sound.stop()
         elif event == "end":
             speaking = None
-            renpy.sound.stop(fadeout=0.1)
+            renpy.sound.stop(fadeout=1.0)
   
     # Curried form of the same.
     speaker = renpy.curry(speaker_callback)
