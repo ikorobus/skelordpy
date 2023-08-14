@@ -14,20 +14,7 @@ define sounds = ['audio/dot.wav']
 init python:
     renpy.music.register_channel("ambient", "music")
 
-    #region sound while speaking
-    def type_sound(event, interact=True, **kwargs):
-        if not interact:
-            return
-
-        if event == "show":
-            renpy.sound.play(renpy.random.choice(sounds))
-            for i in range(50):
-                renpy.sound.queue(renpy.random.choice(sounds))
-
-        elif event == "slow_done" or event == "end":
-            renpy.sound.stop()
-
-        #region
+    #region
             #Generate seperate audio channel from voice for beeps.
         #renpy.music.register_channel(name='beeps', mixer='voice')
 
@@ -38,10 +25,9 @@ init python:
         #        renpy.sound.play("audio/output.wav", channel="beeps", loop=False)
         #    elif event == "slow_done" or event == "end": #When the text is finished displaying or you open a menu.
         #        renpy.sound.stop(channel="beeps")
-        #endregion
     #endregion
 
-    #region lip flap when speaking
+    #region callback
     # This is set to the name of the character that is speaking, or
     # None if no character is currently speaking.
     speaking = None
@@ -65,9 +51,6 @@ init python:
     def speaker_callback(name, event, interact=True, **kwargs):
         global speaking
        
-        #if not interact:
-        #    return
-       
         if event == "show":
             renpy.sound.play(renpy.random.choice(sounds))
             for i in range(50):
@@ -78,13 +61,13 @@ init python:
             renpy.sound.stop()
         elif event == "end":
             speaking = None
-            renpy.sound.stop()
+            renpy.sound.stop(fadeout=0.05)
   
     # Curried form of the same.
     speaker = renpy.curry(speaker_callback)
     #endregion
 
-    #region blinking randomly
+    #region truly random blinking
     def blinkb(trans, st, at):
         global blink_timer_a
 
@@ -131,12 +114,6 @@ define w = Character("???", what_prefix = '"', what_suffix = '"', callback = spe
 define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
 #define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
 #define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
-
-define w = Character("???", what_prefix = '"', what_suffix = '"', callback = speaker("riberto"), ctc = "ctc_anchored", ctc_position = "fixed")
-define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
-#define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
-#define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
-
 #######################
 # The game starts here.
 #######################
@@ -222,14 +199,12 @@ label start:
         )
 
     image rjawmove:
-        clamp(3/preferences.text_cps, 0.05, 5)
-        "riberto jaw move 01.png"
-        clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 02.png"
         clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 03.png"
         clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 02.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
         repeat
 
     scene background
