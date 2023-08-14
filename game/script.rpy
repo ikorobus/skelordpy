@@ -132,6 +132,11 @@ define y = Character("???", what_prefix = '"', what_suffix = '"', callback = typ
 #define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
 #define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
 
+define w = Character("???", what_prefix = '"', what_suffix = '"', callback = speaker("riberto"), ctc = "ctc_anchored", ctc_position = "fixed")
+define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
+#define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
+#define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
+
 #######################
 # The game starts here.
 #######################

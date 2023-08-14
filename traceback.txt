@@ -1,38 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 192, in script
-    python:
-  File "renpy/common/00start.rpy", line 193, in <module>
-    renpy.execute_default_statement(True)
-  File "game/script.rpy", line 4, in set_default
-    default blink_timer_c = renpy.random.randint(3, )
-  File "game/script.rpy", line 4, in <module>
-    default blink_timer_c = renpy.random.randint(3, )
-TypeError: randint() takes exactly 3 arguments (2 given)
+  File "game/script.rpy", line 243, in script
+    w "I'm {b}#%\\!^{/bs}. Ye can just call me {color=#e35460}RIBERTO{/color}."
+ValueError: unsupported format character '\' (0x5c) at index 9
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 192, in script
-    python:
-  File "renpy/ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "renpy/python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00start.rpy", line 193, in <module>
-    renpy.execute_default_statement(True)
-  File "renpy/exports.py", line 3797, in execute_default_statement
-    i.set_default(start)
-  File "game/script.rpy", line 4, in set_default
-    default blink_timer_c = renpy.random.randint(3, )
-  File "renpy/python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 4, in <module>
-    default blink_timer_c = renpy.random.randint(3, )
-TypeError: randint() takes exactly 3 arguments (2 given)
+  File "game/script.rpy", line 243, in script
+    w "I'm {b}#%\\!^{/bs}. Ye can just call me {color=#e35460}RIBERTO{/color}."
+  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\ast.py", line 930, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\exports.py", line 1462, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character '\' (0x5c) at index 9
 
-Windows-10-10.0.19041 AMD64
-Ren'Py 7.5.3.22090809
+Windows-10-10.0.22621 AMD64
+Ren'Py 8.1.1.23060707
 test01 1.0
-Sat Jan 28 15:57:35 2023
+Mon Aug 14 01:23:48 2023

@@ -16,6 +16,9 @@ style default:
 
 define config.name = _("test01")
 
+## Mouse cursor
+
+define config.mouse = { 'default' : [ ('gui/cursor yellowx4.png', 0, 0) ] }
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
@@ -50,7 +53,7 @@ define build.name = "test01"
 
 define config.has_sound = True
 define config.has_music = True
-define config.has_voice = False
+define config.has_voice = True
 
 
 ## To allow the user to play a test sound on the sound or voice channel,
@@ -122,8 +125,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
-
+default preferences.text_cps = 25
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0
 ## to 30 being the valid range.
