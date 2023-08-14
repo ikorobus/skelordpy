@@ -3,7 +3,88 @@ default blink_timer_a = renpy.random.randint(2, 4)
 default blink_timer_b = renpy.random.randint(3, 6)
 default blink_timer_c = renpy.random.randint(3, 3)
 
+##regular taps, medium intervals
+#define sounds = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg']
+##light taps, smaller intervals
+#define sounds = ['audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
+#both taps
+#define sounds = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg', 'audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
+define sounds = ['audio/dot.wav']
+
 init python:
+    renpy.music.register_channel("ambient", "music")
+
+    #region sound while speaking
+    def type_sound(event, interact=True, **kwargs):
+        if not interact:
+            return
+
+        if event == "show":
+            renpy.sound.play(renpy.random.choice(sounds))
+            for i in range(50):
+                renpy.sound.queue(renpy.random.choice(sounds))
+
+        elif event == "slow_done" or event == "end":
+            renpy.sound.stop()
+
+        #region
+            #Generate seperate audio channel from voice for beeps.
+        #renpy.music.register_channel(name='beeps', mixer='voice')
+
+        #Character callback that generates the sound.
+        #def rv(event, **kwargs):
+        #    if event == "show": #When the text is shown
+        #        build_sentence(_last_say_what, "eileen")
+        #        renpy.sound.play("audio/output.wav", channel="beeps", loop=False)
+        #    elif event == "slow_done" or event == "end": #When the text is finished displaying or you open a menu.
+        #        renpy.sound.stop(channel="beeps")
+        #endregion
+    #endregion
+
+    #region lip flap when speaking
+    # This is set to the name of the character that is speaking, or
+    # None if no character is currently speaking.
+    speaking = None
+  
+    # This returns speaking if the character is speaking, and done if the
+    # character is not.
+    def while_speaking(name, speak_d, done_d, st, at):
+        if speaking == name:
+            return speak_d, .1
+        else:
+            return done_d, None
+  
+    # Curried form of the above.
+    curried_while_speaking = renpy.curry(while_speaking)
+  
+    # Displays speaking when the named character is speaking, and done otherwise.
+    def WhileSpeaking(name, speaking_d, done_d = Null()):
+        return DynamicDisplayable(curried_while_speaking(name, speaking_d, done_d))
+  
+    # This callback maintains the speaking variable.
+    def speaker_callback(name, event, interact=True, **kwargs):
+        global speaking
+       
+        #if not interact:
+        #    return
+       
+        if event == "show":
+            renpy.sound.play(renpy.random.choice(sounds))
+            for i in range(50):
+                renpy.sound.queue(renpy.random.choice(sounds))
+            speaking = name
+        elif event == "slow_done":
+            speaking = None
+            renpy.sound.stop()
+        elif event == "end":
+            speaking = None
+            renpy.sound.stop()
+  
+    # Curried form of the same.
+    speaker = renpy.curry(speaker_callback)
+    #endregion
+
+    #region blinking randomly
     def blinkb(trans, st, at):
         global blink_timer_a
 
@@ -26,22 +107,40 @@ init python:
         global blink_timer_c
 
         if st >= blink_timer_c:
-            blink_timer_b = renpy.random.randint(2, 5)
+            blink_timer_b = renpy.random.randint(2, 8)
             return None
         else:
             return 0
+    #endregion
+
+    def clamp(num, min_value, max_value):
+        return max(min(num, max_value), min_value)
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define r = Character("RIBERTO", who_bold = False, what_prefix = '"', what_suffix = '"')
-define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
-define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
+define r = Character("RIBERTO", 
+            who_bold = False, 
+            what_prefix = '"', 
+            what_suffix = '"',
+            callback = speaker("riberto"), 
+            ctc = "ctc_anchored", 
+            ctc_position = "fixed")
 
+define w = Character("???", what_prefix = '"', what_suffix = '"', callback = speaker("riberto"), ctc = "ctc_anchored", ctc_position = "fixed")
+define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
+#define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
+#define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
+
+#######################
 # The game starts here.
+#######################
 
 label start:
 
+    play music "audio/fire.ogg"
+    #play ambient "audio/raintweak.ogg"
+    play ambient "audio/rainece.ogg"
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
@@ -55,6 +154,16 @@ label start:
         pause 0.25
         "images/bg03.png"
         pause 0.25
+        repeat
+
+    image ctc_anchored:
+        "ctc fixed 02.png"
+        yalign 0.88
+        xalign 0.925
+        0.5
+        linear 0.5 yalign 0.87
+        0.5
+        linear 0.5 yalign 0.88
         repeat
 
     image mur:
@@ -101,46 +210,88 @@ label start:
         3.95
         repeat
 
+    image rjaw = Composite(
+        (91, 166),
+        (0,0), "riberto blank.png",
+        (0,0), WhileSpeaking("riberto", "rjawmove", "riberto jaw move 01.png"),
+        )
+
+    image rjawmove:
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 01.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 02.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 03.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 02.png"
+        repeat
+
     scene background
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
-
     
     show mur at Position(xpos = 96, xanchor = 0, ypos = 19, yanchor = 0)    
     show ara at Position(xpos = 267, xanchor = 0, ypos = 5, yanchor = 0)
 
     # These display lines of dialogue.
 
-    "..."
-    "..."
-    show ridle with dissolve
-    "..."
-    r "Hello!"
+    y "..."
+    y "Hmm..."
+    y "..."
+    y "...eh?"
+    show rjaw
+    show ridle
+    with dissolve
+    w "Hey!"
+    w "You there!"
+    w "Are you okay?"
+    w "What are you doing here?"
+    y "..."
+    w "You don't look from around here. So squishy..."
+    y "..."
+    y "..."
+    y "..."
+    w "Not much for words, aye?"
+    w "It's okay."
+    w "You're not the first one to get lost in here, and surely not the last."
+    w "But do not fret, I'll get you outta here."
+    w "I'm #%%\\!^. Ye can just call me {color=#e35460}RIBERTO{/color}."
+    r "I'll... uh... I'll just call you chum. Fits you pretty well."
     hide ridle
     show rflushed
     r "Aye, nice to meet you, chum!"
-    r "...\\ \n \% "
     hide rflushed
     show ridle
-    b "soy un murcielago"
-    s "soy una araña"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean turpis tellus, placerat eu dictum quis, 
-    mattis sed lorem. Proin imperdiet neque vitae rutrum consectetur. Phasellus molestie risus sed tellus consequat, 
-    elementum ullamcorper ex commodo. Vivamus ac facilisis odio."
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
-    r "paoiipfodpfoiewjapofijslñdkjfoawiee fjlakksdjfñoaiwefñjla aksjdfñlkajsdfñlajeofjñaslkdf"
+    r "Now let's get going, shall we?"
+    r "There is one thing you need to know first, though."
+    r "This dungeon we're trapped in... It's 'magical', y'see."
+    r "Actually, the only one stuck in here is you!"
+    r "I'm this dungeon's lord."
+    hide ridle
+    show rflushed
+    r "Self-proclaimed, must confess. Left living here for all eternity. "
+    r "Well, 'undying', rather."
+    r "At least these dusty old bones have kept this house of mine nice and clean all these years!"
+    hide rflushed
+    show ridle
+    r "Anyway, this dungeon... doesn't have an exit."
+    r "Nor an entrance."
+    r "Not until its user desires to. This vault is ever-changing."
+    r "And I may be a cool, humerous and a bit of a bonehead, but I'm not its user."
+    r "That's you, chum!"
+    r "The reason why you're here with me may be something you been struggling with." 
+    r "Emotions, life and the like."
+    r "You humans are complex beings, yet so powerful."
+    r "Or maybe it was purely by chance."
+    r "The whim of fate."
+    r "Anyhow,"
+    r "To catalyze your feelings into an opening I'll need you to tell me about them."
+
+    r ""
+    r "...\\ \n \% "
 
     # This ends the game.
-
     return
