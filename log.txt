@@ -1,4 +1,4 @@
-Mon Aug 14 17:41:10 2023
+Mon Aug 14 17:46:08 2023
 Windows-10-10.0.22621
 Ren'Py 8.1.1.23060707
  
@@ -10,6 +10,49 @@ Loading error handling. took 0.02s
 Loading script. took 0.08s
 Loading save slot metadata. took 0.02s
 Loading persistent. took 0.00s
+
+Full traceback:
+  File "game/script.rpy", line 114, in script
+    define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
+  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\ast.py", line 2508, in execute
+    self.set()
+  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\ast.py", line 2522, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 114, in <module>
+    define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
+NameError: name 'type_sound' is not defined
+
+While running game code:
+  File "game/script.rpy", line 114, in script
+    define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
+  File "game/script.rpy", line 114, in <module>
+    define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
+NameError: name 'type_sound' is not defined
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start. took 1.16s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1200)
+swap interval: 1 frames
+Fullscreen mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 3050 Ti Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 536.99'
+Display Info: None
+Screen sizes: virtual=(320, 180) physical=(1920, 1200) drawable=(1920, 1200)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 51.45s
+Early init. took 0.00s
+Loader init. took 0.02s
+Loading error handling. took 0.02s
+Loading script. took 0.06s
+Loading save slot metadata. took 0.01s
+Loading persistent. took 0.00s
 Running init code. took 0.02s
 Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.00s
@@ -19,11 +62,11 @@ Backing up script files to 'C:\\Users\\Cynthia\\AppData\\Roaming/RenPy/backups\\
 Dump and make backups. took 0.02s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.01s
+Initial gc. took 0.02s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object. took 0.17s
+Creating interface object. took 0.15s
 Cleaning stores took 0.00s
 Init translation took 0.02s
 Build styles took 0.00s
@@ -32,10 +75,10 @@ Analyze screens took 0.01s
 Save screen analysis took 0.01s
 Prepare screens took 0.03s
 Save pyanalysis. took 0.01s
-Save bytecode. took 0.02s
+Save bytecode. took 0.01s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.03s
+Interface start. took 0.02s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1200)

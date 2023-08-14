@@ -61,7 +61,7 @@ init python:
             renpy.sound.stop()
         elif event == "end":
             speaking = None
-            renpy.sound.stop(fadeout=0.05)
+            renpy.sound.stop(fadeout=0.1)
   
     # Curried form of the same.
     speaker = renpy.curry(speaker_callback)
@@ -111,9 +111,10 @@ define r = Character("RIBERTO",
             ctc_position = "fixed")
 
 define w = Character("???", what_prefix = '"', what_suffix = '"', callback = speaker("riberto"), ctc = "ctc_anchored", ctc_position = "fixed")
-define y = Character("???", what_prefix = '"', what_suffix = '"', callback = type_sound, ctc = "ctc_anchored", ctc_position = "fixed")
+define y = Character("???", what_prefix = '"', what_suffix = '"', callback = speaker("none"), ctc = "ctc_anchored", ctc_position = "fixed")
 #define b = Character("BAT", who_bold = False, color = '#35608b', what_prefix = '"', what_suffix = '"')
 #define s = Character("SPIDER", who_bold = False, color = '#35634d', what_prefix = '"', what_suffix = '"')
+
 #######################
 # The game starts here.
 #######################
