@@ -208,6 +208,8 @@ label start:
         clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 02.png"
         clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 01.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
         repeat
 
     scene background
