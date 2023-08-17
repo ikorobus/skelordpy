@@ -53,13 +53,13 @@ define gui.interface_text_color = '#dee0e3'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "fonts/rainyhearts.ttf"
+define gui.text_font = "fonts/rainyhearts.otf"
 
 ## The font used for character names.
-define gui.name_text_font = "fonts/rainyhearts.ttf"
+define gui.name_text_font = "fonts/rainyhearts.otf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "fonts/rainyhearts.ttf"
+define gui.interface_text_font = "fonts/pixeloperator.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 8
@@ -195,9 +195,9 @@ define gui.confirm_button_text_xalign = 0.5
 
 define gui.page_button_borders = Borders(3, 1, 3, 1)
 
-define gui.quick_button_borders = Borders(3, 1, 3, 0)
+define gui.quick_button_borders = Borders(3, 1, 3, -1)
 define gui.quick_button_text_size = 8
-define gui.quick_button_text_idle_color = '#a7a9ac'
+define gui.quick_button_text_idle_color = '#817962'
 define gui.quick_button_text_selected_color = gui.accent_color
 
 ## You can also add your own customizations, by adding properly-named variables.

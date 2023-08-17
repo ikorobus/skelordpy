@@ -1,7 +1,7 @@
 ﻿# The script of the game goes in this file.
 default blink_timer_a = renpy.random.randint(1, 4)
-default blink_timer_b = renpy.random.randint(3, 6)
-default blink_timer_c = renpy.random.randint(3, 4)
+default blink_timer_b = renpy.random.randint(2, 5)
+default blink_timer_c = renpy.random.randint(3, 7)
 
 ##regular taps, medium intervals
 #define sounds = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg']
@@ -178,7 +178,18 @@ label start:
         "riberto idle 03.png"
         0.05
         "riberto idle 00.png"
-        function blinkr
+        choice:
+            function blinkr
+        choice:
+            0.1
+        choice:
+            1
+        choice:
+            3
+        choice:
+            4
+        choice:
+            5
         repeat
 
     image rflushed:
