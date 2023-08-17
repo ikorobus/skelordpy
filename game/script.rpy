@@ -1,7 +1,7 @@
 ﻿# The script of the game goes in this file.
-default blink_timer_a = renpy.random.randint(2, 4)
+default blink_timer_a = renpy.random.randint(1, 4)
 default blink_timer_b = renpy.random.randint(3, 6)
-default blink_timer_c = renpy.random.randint(3, 3)
+default blink_timer_c = renpy.random.randint(3, 4)
 
 ##regular taps, medium intervals
 #define sounds = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg']
@@ -10,7 +10,7 @@ default blink_timer_c = renpy.random.randint(3, 3)
 #both taps
 #define sounds = ['audio/A1.ogg', 'audio/A2.ogg', 'audio/A3.ogg', 'audio/A4.ogg', 'audio/A5.ogg', 'audio/B1.ogg', 'audio/B2.ogg', 'audio/B3.ogg', 'audio/B4.ogg', 'audio/B5.ogg']
 
-#define sounds = ['audio/dot.wav']
+define sound = ['audio/dot.wav']
 define sounds = ['audio/xylophone/x1.ogg', 'audio/xylophone/x2.ogg', 'audio/xylophone/x3.ogg', 'audio/xylophone/x4.ogg', 'audio/xylophone/x5.ogg', 'audio/xylophone/x6.ogg', 'audio/xylophone/x7.ogg', 'audio/xylophone/x8.ogg', 'audio/xylophone/x9.ogg', 'audio/xylophone/x10.ogg']
 
 init python:
@@ -54,16 +54,21 @@ init python:
         global speaking
        
         if event == "show":
-            renpy.sound.play(renpy.random.choice(sounds))
-            for i in range(50):
-                renpy.sound.queue(renpy.random.choice(sounds))
+            if name == "riberto":
+                renpy.sound.play(renpy.random.choice(sounds), fadein=0.001)
+                for i in range(50):
+                    renpy.sound.queue(renpy.random.choice(sounds), fadein=0.01)
+            else:
+                renpy.sound.play(renpy.random.choice(sound), fadein=0.001)
+                for i in range(50):
+                    renpy.sound.queue(renpy.random.choice(sound), fadein=0.01)
             speaking = name
         elif event == "slow_done":
             speaking = None
-            renpy.sound.stop()
+            renpy.sound.stop(fadeout=0.01)
         elif event == "end":
             speaking = None
-            renpy.sound.stop(fadeout=1.0)
+            renpy.sound.stop(fadeout=0.01)
   
     # Curried form of the same.
     speaker = renpy.curry(speaker_callback)
@@ -198,10 +203,42 @@ label start:
     image rjaw = Composite(
         (91, 166),
         (0,0), "riberto blank.png",
-        (0,0), WhileSpeaking("riberto", "rjawmove", "riberto jaw move 01.png"),
+        (0,0), WhileSpeaking("riberto", "rjawchoice", "riberto jaw idle.png"),
         )
 
-    image rjawmove:
+    image rjawchoice:
+        choice:
+            "riberto jaw move 01.png"
+            clamp(3/preferences.text_cps, 0.05, 5)
+            "riberto jaw move 02.png"
+            clamp(3/preferences.text_cps, 0.05, 5)
+        choice:
+            "riberto jaw move 01.png" #-
+            clamp(3/preferences.text_cps, 0.05, 5) 
+            "riberto jaw move 02.png"
+            clamp(3/preferences.text_cps, 0.05, 5)
+            "riberto jaw move 03.png"
+            clamp(3/preferences.text_cps, 0.05, 5)
+            "riberto jaw move 02.png"
+            clamp(3/preferences.text_cps, 0.05, 5)
+        repeat
+
+    image rjawmove1:
+        "riberto jaw move 01.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 02.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 01.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        repeat
+
+    image rjawmove0:
+        "riberto jaw move 01.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 02.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 01.png" #-
+        clamp(3/preferences.text_cps, 0.05, 5) 
         "riberto jaw move 02.png"
         clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 03.png"
@@ -209,6 +246,8 @@ label start:
         "riberto jaw move 02.png"
         clamp(3/preferences.text_cps, 0.05, 5)
         "riberto jaw move 01.png"
+        clamp(3/preferences.text_cps, 0.05, 5)
+        "riberto jaw move 02.png"
         clamp(3/preferences.text_cps, 0.05, 5)
         repeat
 
@@ -224,11 +263,11 @@ label start:
     # These display lines of dialogue.
 
     y "..."
-    y "Hmm..."
+    w "Hmm..."
     y "..."
-    y "...eh?"
-    show rjaw
+    w "...eh?"
     show ridle
+    show rjaw
     with dissolve
     w "Hey!"
     w "You there!"
@@ -246,22 +285,30 @@ label start:
     w "I'm #%%\\!^. Ye can just call me {color=#e35460}RIBERTO{/color}."
     r "I'll... uh... I'll just call you chum. Fits you pretty well."
     hide ridle
+    hide rjaw
     show rflushed
+    show rjaw
     r "Aye, nice to meet you, chum!"
     hide rflushed
+    hide rjaw
     show ridle
+    show rjaw
     r "Now let's get going, shall we?"
     r "There is one thing you need to know first, though."
     r "This dungeon we're trapped in... It's 'magical', y'see."
     r "Actually, the only one stuck in here is you!"
     r "I'm this dungeon's lord."
     hide ridle
+    hide rjaw
     show rflushed
+    show rjaw
     r "Self-proclaimed, must confess. Left living here for all eternity. "
     r "Well, 'undying', rather."
     r "At least these dusty old bones have kept this house of mine nice and clean all these years!"
     hide rflushed
+    hide rjaw
     show ridle
+    show rjaw
     r "Anyway, this dungeon... doesn't have an exit."
     r "Nor an entrance."
     r "Not until its user desires to. This vault is ever-changing."
