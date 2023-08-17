@@ -282,7 +282,7 @@ label start:
     w "It's okay."
     w "You're not the first one to get lost in here, and surely not the last."
     w "But do not fret, I'll get you outta here."
-    w "I'm #%%\\!^. Ye can just call me {color=#e35460}RIBERTO{/color}."
+    w "I'm #%%\\ŷ!. Ye can just call me {color=#e35460}RIBERTO{/color}."
     r "I'll... uh... I'll just call you chum. Fits you pretty well."
     hide ridle
     hide rjaw
