@@ -60,7 +60,12 @@ style vscrollbar:
     thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
 style slider:
+    thumb_offset 2
     ysize gui.slider_size
+    ymaximum 11
+    yminimum 11
+    #left_bar "gui/slider/slider_barra_izq.png"
+    #right_bar "gui/slider/slider_barra_der.png"
     base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
     thumb "gui/slider/horizontal_[prefix_]thumb.png"
 

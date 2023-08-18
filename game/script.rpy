@@ -55,7 +55,7 @@ init python:
        
         if event == "show":
             if name == "riberto":
-                renpy.sound.play(renpy.random.choice(sounds), fadein=0.001)
+                renpy.sound.play(renpy.random.choice(sounds), fadein=0.001) # channel="voice"
                 for i in range(50):
                     renpy.sound.queue(renpy.random.choice(sounds), fadein=0.01)
             else:
