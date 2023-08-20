@@ -220,27 +220,27 @@ label start:
     image rjawchoice:
         choice:
             "riberto jaw move 01.png"
-            clamp(3/preferences.text_cps, 0.05, 5)
+            clamp(3/preferences.text_cps, 0.07, 5)
             "riberto jaw move 02.png"
-            clamp(3/preferences.text_cps, 0.05, 5)
+            clamp(3/preferences.text_cps, 0.07, 5)
         choice:
             "riberto jaw move 01.png" #-
-            clamp(3/preferences.text_cps, 0.05, 5) 
+            clamp(3/preferences.text_cps, 0.07, 5) 
             "riberto jaw move 02.png"
-            clamp(3/preferences.text_cps, 0.05, 5)
+            clamp(3/preferences.text_cps, 0.07, 5)
             "riberto jaw move 03.png"
-            clamp(3/preferences.text_cps, 0.05, 5)
+            clamp(3/preferences.text_cps, 0.07, 5)
             "riberto jaw move 02.png"
-            clamp(3/preferences.text_cps, 0.05, 5)
+            clamp(3/preferences.text_cps, 0.07, 5)
         repeat
 
     image rjawmove1:
         "riberto jaw move 01.png"
-        clamp(3/preferences.text_cps, 0.05, 5)
+        clamp(3/preferences.text_cps, 0.07, 5)
         "riberto jaw move 02.png"
-        clamp(3/preferences.text_cps, 0.05, 5)
+        clamp(3/preferences.text_cps, 0.07, 5)
         "riberto jaw move 01.png"
-        clamp(3/preferences.text_cps, 0.05, 5)
+        clamp(3/preferences.text_cps, 0.07, 5)
         repeat
 
     image rjawmove0:
