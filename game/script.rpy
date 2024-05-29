@@ -150,9 +150,9 @@ label start:
         "ctc fixed 02.png"
         yalign 0.88
         xalign 0.925
-        0.5
+        0.25
         linear 0.5 yalign 0.87
-        0.5
+        0.25
         linear 0.5 yalign 0.88
         repeat
 

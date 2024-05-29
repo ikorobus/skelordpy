@@ -96,6 +96,7 @@ image main_menu_animated:
 ## The images used for the main and game menus.
 define gui.main_menu_background = "main_menu_animated"
 define gui.game_menu_background = "main_menu_animated"
+define gui.prefs_background = "main_menu_animated"
 
 
 ## Dialogue ####################################################################

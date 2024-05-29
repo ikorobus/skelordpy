@@ -296,10 +296,13 @@ screen navigation():
 
         #xpos gui.navigation_xpos
         if main_menu:
-            xalign 0.5
-            yoffset 38
+            if renpy.get_screen('main_menu'):
+                xalign 0.5
+                yoffset 38
+            else:
+                xpos gui.navigation_xpos + 10
         else:
-            xpos gui.navigation_xpos
+            xpos gui.navigation_xpos + 5
         yalign 0.5
 
         spacing gui.navigation_spacing
@@ -428,10 +431,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     style_prefix "game_menu"
 
-    if main_menu:
-        add gui.main_menu_background
-    else:
-        add gui.game_menu_background
+    add gui.main_menu_background
 
     frame:
         style "game_menu_outer_frame"
@@ -722,6 +722,8 @@ style slot_button_text:
 screen preferences():
 
     tag menu
+
+    add gui.game_menu_background
 
     use game_menu(_("Preferences"), scroll="viewport"):
 

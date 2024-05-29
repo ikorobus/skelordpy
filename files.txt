@@ -6,17 +6,250 @@ screens.rpy
 screens.rpyc
 script.rpy
 script.rpyc
+audio\A1.ogg
+audio\A2.ogg
+audio\A3.ogg
+audio\A4.ogg
+audio\A5.ogg
+audio\B1.ogg
+audio\B2.ogg
+audio\B3.ogg
+audio\B4.ogg
+audio\B5.ogg
+audio\dot.wav
+audio\fire.ogg
+audio\output.wav
+audio\rainece.ogg
+audio\raintweak.ogg
+audio\beeps\letters.txt
+audio\beeps\eileen\a.wav
+audio\beeps\eileen\b.wav
+audio\beeps\eileen\c.wav
+audio\beeps\eileen\ch.wav
+audio\beeps\eileen\d.wav
+audio\beeps\eileen\dot.wav
+audio\beeps\eileen\e.wav
+audio\beeps\eileen\f.wav
+audio\beeps\eileen\g.wav
+audio\beeps\eileen\h.wav
+audio\beeps\eileen\i.wav
+audio\beeps\eileen\j.wav
+audio\beeps\eileen\k.wav
+audio\beeps\eileen\l.wav
+audio\beeps\eileen\m.wav
+audio\beeps\eileen\n.wav
+audio\beeps\eileen\o.wav
+audio\beeps\eileen\p.wav
+audio\beeps\eileen\ph.wav
+audio\beeps\eileen\q.wav
+audio\beeps\eileen\r.wav
+audio\beeps\eileen\s.wav
+audio\beeps\eileen\sh.wav
+audio\beeps\eileen\t.wav
+audio\beeps\eileen\th.wav
+audio\beeps\eileen\u.wav
+audio\beeps\eileen\v.wav
+audio\beeps\eileen\w.wav
+audio\beeps\eileen\wh.wav
+audio\beeps\eileen\x.wav
+audio\beeps\eileen\y.wav
+audio\beeps\eileen\z.wav
+audio\beeps\eileen2\a.wav
+audio\beeps\eileen2\b.wav
+audio\beeps\eileen2\c.wav
+audio\beeps\eileen2\ch.wav
+audio\beeps\eileen2\d.wav
+audio\beeps\eileen2\dot.wav
+audio\beeps\eileen2\e.wav
+audio\beeps\eileen2\f.wav
+audio\beeps\eileen2\g.wav
+audio\beeps\eileen2\h.wav
+audio\beeps\eileen2\i.wav
+audio\beeps\eileen2\j.wav
+audio\beeps\eileen2\k.wav
+audio\beeps\eileen2\l.wav
+audio\beeps\eileen2\m.wav
+audio\beeps\eileen2\n.wav
+audio\beeps\eileen2\o.wav
+audio\beeps\eileen2\p.wav
+audio\beeps\eileen2\ph.wav
+audio\beeps\eileen2\q.wav
+audio\beeps\eileen2\r.wav
+audio\beeps\eileen2\s.wav
+audio\beeps\eileen2\sh.wav
+audio\beeps\eileen2\t.wav
+audio\beeps\eileen2\th.wav
+audio\beeps\eileen2\u.wav
+audio\beeps\eileen2\v.wav
+audio\beeps\eileen2\w.wav
+audio\beeps\eileen2\wh.wav
+audio\beeps\eileen2\x.wav
+audio\beeps\eileen2\y.wav
+audio\beeps\eileen2\z.wav
+audio\projects\Grabación (2)_01.wav
+audio\projects\Grabación (3)_01.wav
+audio\projects\Grabación_01.wav
+audio\projects\g2.aup
+audio\projects\g3.aup
+audio\projects\g2_data\e08\d08\e0808012.au
+audio\projects\g2_data\e08\d08\e080801b.au
+audio\projects\g2_data\e08\d08\e080805e.au
+audio\projects\g2_data\e08\d08\e080806e.au
+audio\projects\g2_data\e08\d08\e08080bd.au
+audio\projects\g2_data\e08\d08\e08080d3.au
+audio\projects\g2_data\e08\d08\e08080dd.au
+audio\projects\g2_data\e08\d08\e08080f2.au
+audio\projects\g2_data\e08\d08\e080815c.au
+audio\projects\g2_data\e08\d08\e0808166.au
+audio\projects\g2_data\e08\d08\e080816d.au
+audio\projects\g2_data\e08\d08\e0808185.au
+audio\projects\g2_data\e08\d08\e08081c9.au
+audio\projects\g2_data\e08\d08\e08081e4.au
+audio\projects\g2_data\e08\d08\e0808232.au
+audio\projects\g2_data\e08\d08\e080824a.au
+audio\projects\g2_data\e08\d08\e080825a.au
+audio\projects\g2_data\e08\d08\e0808275.au
+audio\projects\g2_data\e08\d08\e0808281.au
+audio\projects\g2_data\e08\d08\e0808290.au
+audio\projects\g2_data\e08\d08\e08082b1.au
+audio\projects\g2_data\e08\d08\e08082d7.au
+audio\projects\g2_data\e08\d08\e08082d8.au
+audio\projects\g2_data\e08\d08\e0808310.au
+audio\projects\g2_data\e08\d08\e080836e.au
+audio\projects\g2_data\e08\d08\e080837e.au
+audio\projects\g2_data\e08\d08\e0808380.au
+audio\projects\g2_data\e08\d08\e080838f.au
+audio\projects\g2_data\e08\d08\e0808399.au
+audio\projects\g2_data\e08\d08\e0808445.au
+audio\projects\g2_data\e08\d08\e0808498.au
+audio\projects\g2_data\e08\d08\e08084ad.au
+audio\projects\g2_data\e08\d08\e08084b0.au
+audio\projects\g2_data\e08\d08\e0808537.au
+audio\projects\g2_data\e08\d08\e0808579.au
+audio\projects\g2_data\e08\d08\e08085bb.au
+audio\projects\g2_data\e08\d08\e08085c6.au
+audio\projects\g2_data\e08\d08\e080860a.au
+audio\projects\g2_data\e08\d08\e0808624.au
+audio\projects\g2_data\e08\d08\e080864a.au
+audio\projects\g2_data\e08\d08\e0808654.au
+audio\projects\g2_data\e08\d08\e08086a3.au
+audio\projects\g2_data\e08\d08\e08086c2.au
+audio\projects\g2_data\e08\d08\e08086d6.au
+audio\projects\g2_data\e08\d08\e08086ea.au
+audio\projects\g2_data\e08\d08\e08086f3.au
+audio\projects\g2_data\e08\d08\e0808747.au
+audio\projects\g2_data\e08\d08\e0808755.au
+audio\projects\g2_data\e08\d08\e080875b.au
+audio\projects\g2_data\e08\d08\e0808764.au
+audio\projects\g2_data\e08\d08\e08087f3.au
+audio\projects\g2_data\e08\d08\e0808865.au
+audio\projects\g2_data\e08\d08\e0808884.au
+audio\projects\g2_data\e08\d08\e0808885.au
+audio\projects\g2_data\e08\d08\e0808894.au
+audio\projects\g2_data\e08\d08\e08088ca.au
+audio\projects\g2_data\e08\d08\e0808903.au
+audio\projects\g2_data\e08\d08\e080892a.au
+audio\projects\g2_data\e08\d08\e0808935.au
+audio\projects\g2_data\e08\d08\e0808945.au
+audio\projects\g2_data\e08\d08\e080896d.au
+audio\projects\g2_data\e08\d08\e080899c.au
+audio\projects\g2_data\e08\d08\e08089b2.au
+audio\projects\g2_data\e08\d08\e08089b3.au
+audio\projects\g2_data\e08\d08\e08089ec.au
+audio\projects\g2_data\e08\d08\e0808a75.au
+audio\projects\g2_data\e08\d08\e0808a79.au
+audio\projects\g2_data\e08\d08\e0808a86.au
+audio\projects\g2_data\e08\d08\e0808a8c.au
+audio\projects\g2_data\e08\d08\e0808a98.au
+audio\projects\g2_data\e08\d08\e0808af4.au
+audio\projects\g2_data\e08\d08\e0808b19.au
+audio\projects\g2_data\e08\d08\e0808b22.au
+audio\projects\g2_data\e08\d08\e0808b90.au
+audio\projects\g2_data\e08\d08\e0808b95.au
+audio\projects\g2_data\e08\d08\e0808bda.au
+audio\projects\g2_data\e08\d08\e0808bf4.au
+audio\projects\g2_data\e08\d08\e0808c90.au
+audio\projects\g2_data\e08\d08\e0808c92.au
+audio\projects\g2_data\e08\d08\e0808cab.au
+audio\projects\g2_data\e08\d08\e0808ce6.au
+audio\projects\g2_data\e08\d08\e0808cfb.au
+audio\projects\g2_data\e08\d08\e0808d19.au
+audio\projects\g2_data\e08\d08\e0808e02.au
+audio\projects\g2_data\e08\d08\e0808e05.au
+audio\projects\g2_data\e08\d08\e0808e6e.au
+audio\projects\g2_data\e08\d08\e0808e9f.au
+audio\projects\g2_data\e08\d08\e0808ea0.au
+audio\projects\g2_data\e08\d08\e0808eac.au
+audio\projects\g2_data\e08\d08\e0808f12.au
+audio\projects\g2_data\e08\d08\e0808f35.au
+audio\projects\g2_data\e08\d08\e0808f40.au
+audio\projects\g3_data\e08\d08\e08081d6.au
+audio\projects\g3_data\e08\d08\e080824e.au
+audio\projects\g3_data\e08\d08\e08082aa.au
+audio\projects\g3_data\e08\d08\e0808307.au
+audio\projects\g3_data\e08\d08\e0808310.au
+audio\projects\g3_data\e08\d08\e0808393.au
+audio\projects\g3_data\e08\d08\e0808418.au
+audio\projects\g3_data\e08\d08\e080841d.au
+audio\projects\g3_data\e08\d08\e0808435.au
+audio\projects\g3_data\e08\d08\e0808565.au
+audio\projects\g3_data\e08\d08\e0808687.au
+audio\projects\g3_data\e08\d08\e0808725.au
+audio\projects\g3_data\e08\d08\e08088f3.au
+audio\projects\g3_data\e08\d08\e0808916.au
+audio\projects\g3_data\e08\d08\e08089d0.au
+audio\projects\g3_data\e08\d08\e0808ac5.au
+audio\projects\g3_data\e08\d08\e0808af4.au
+audio\projects\g3_data\e08\d08\e0808ec2.au
+audio\projects\g3_data\e08\d08\e0808fac.au
+audio\raw\ambience\fire.wav
+audio\raw\ambience\fire0.ogg
+audio\raw\ambience\soft-rain-ambient-111154.mp3
+audio\raw\ambience\soft-rain-ambient-111154.ogg
+audio\raw\animalese\Grabación (2).m4a
+audio\raw\animalese\Grabación (3).m4a
+audio\raw\animalese\Grabación.m4a
+audio\raw\animalese\export\a01.wav
+audio\raw\animalese\export\a02.wav
+audio\raw\animalese\export\a03.wav
+audio\xylophone\all-of-the-notes-90948.aup3
+audio\xylophone\all-of-the-notes-90948.mp3
+audio\xylophone\x1.ogg
+audio\xylophone\x10.ogg
+audio\xylophone\x2.ogg
+audio\xylophone\x3.ogg
+audio\xylophone\x4.ogg
+audio\xylophone\x5.ogg
+audio\xylophone\x6.ogg
+audio\xylophone\x7.ogg
+audio\xylophone\x8.ogg
+audio\xylophone\x9.ogg
+cache\bytecode-39.rpyb
 cache\bytecode.rpyb
 cache\py3analysis.rpyb
+cache\pyanalysis.rpyb
 cache\screens.rpyb
 cache\shaders.txt
+fonts\FantasyDraft.ttf
 fonts\License.txt
+fonts\PixelOperator.ttf
+fonts\PixelOperator8.ttf
 fonts\Teeny-Tiny-Pixls.otf
 fonts\Wild-World.ttf
 fonts\pixel_operator.zip
+fonts\pixelplay.ttf
+fonts\rainyhearts.otf
+fonts\rainyhearts.ttf
+gui\cursor white.png
+gui\cursor yellow.png
+gui\cursor yellowx2.png
+gui\cursor yellowx3.png
+gui\cursor yellowx4.png
 gui\frame.png
-gui\game_menu.png
-gui\main_menu.png
+gui\main_menu_00.png
+gui\main_menu_01.png
+gui\main_menu_02.png
+gui\main_menu_03.png
 gui\namebox.png
 gui\notify.png
 gui\nvl.png
@@ -166,6 +399,8 @@ gui\slider\horizontal_hover_bar.png
 gui\slider\horizontal_hover_thumb.png
 gui\slider\horizontal_idle_bar.png
 gui\slider\horizontal_idle_thumb.png
+gui\slider\slider_barra_der.png
+gui\slider\slider_barra_izq.png
 gui\slider\vertical_hover_bar.png
 gui\slider\vertical_hover_thumb.png
 gui\slider\vertical_idle_bar.png
@@ -176,6 +411,10 @@ images\bg00.png
 images\bg01.png
 images\bg02.png
 images\bg03.png
+images\ctc fixed 02.png
+images\jaw 01.png
+images\jaw 02.png
+images\riberto blank.png
 images\riberto flushed 00.png
 images\riberto flushed 01.png
 images\riberto flushed 02.png
@@ -185,9 +424,28 @@ images\riberto flushed 05.png
 images\riberto flushed 06.png
 images\riberto flushed 07.png
 images\riberto flushed.png
+images\riberto idle 00.png
+images\riberto idle 01.png
+images\riberto idle 02.png
+images\riberto idle 03.png
+images\riberto jaw idle.png
+images\riberto jaw move 01.png
+images\riberto jaw move 02.png
+images\riberto jaw move 03.png
 images\spi blink.png
 images\spi.png
 images\textbox.png
+pydub\__init__.py
+pydub\audio_segment.py
+pydub\effects.py
+pydub\exceptions.py
+pydub\generators.py
+pydub\logging_utils.py
+pydub\playback.py
+pydub\pyaudioop.py
+pydub\scipy_effects.py
+pydub\silence.py
+pydub\utils.py
 saves\1-1-LT1.save
 saves\_reload-2-LT1.save
 saves\auto-1-LT1.save
@@ -202,5 +460,6 @@ saves\auto-8-LT1.save
 saves\auto-9-LT1.save
 saves\navigation.json
 saves\persistent
+tl\None\common-DESKTOP-NLQGITK.rpymc
 tl\None\common.rpym
 tl\None\common.rpymc
