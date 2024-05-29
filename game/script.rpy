@@ -262,7 +262,10 @@ label start:
         clamp(3/preferences.text_cps, 0.05, 5)
         repeat
 
-    scene background
+    scene bg fade
+    with dissolve
+    scene background 
+    with dissolve
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images

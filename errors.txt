@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 357: end of line expected.
-    if main_menu:
-    ^
+File "game/script.rpy", line 267: expected 'image_name_component' not found.
+    show "fade.png"
+         ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed May 29 05:41:50 2024
+Wed May 29 05:53:42 2024
