@@ -1,32 +1,83 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 276, in script
-    y "..."
-  File "game/script.rpy", line 62, in speaker_callback
-    renpy.voice.play(renpy.random.choice(sound), fadein=0.001)
-AttributeError: module 'renpy.exports' has no attribute 'voice'
+  File "game/screens.rpy", line 593, in execute
+    screen save():
+  File "game/screens.rpy", line 593, in execute
+    screen save():
+  File "game/screens.rpy", line 597, in execute
+    use file_slots(_("Save"))
+  File "game/screens.rpy", line 607, in execute
+    screen file_slots(title):
+  File "game/screens.rpy", line 607, in execute
+    screen file_slots(title):
+  File "game/screens.rpy", line 611, in execute
+    use game_menu(title):
+  File "game/screens.rpy", line 430, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 430, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 434, in execute
+    add gui.main_menu_background
+  File "game/screens.rpy", line 434, in <module>
+    add gui.main_menu_background
+AttributeError: 'StoreModule' object has no attribute 'main_menu_background'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 276, in script
-    y "..."
-  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\ast.py", line 930, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\exports.py", line 1473, in say
-    who(what, *args, **kwargs)
-  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\character.py", line 1352, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\character.py", line 1003, in do_display
-    display_say(who,
-  File "D:\Programas\RenPy\renpy-8.1.1-sdk\renpy\character.py", line 601, in display_say
-    c("show", interact=interact, type=type, **cb_args)
-  File "game/script.rpy", line 62, in speaker_callback
-    renpy.voice.play(renpy.random.choice(sound), fadein=0.001)
-AttributeError: module 'renpy.exports' has no attribute 'voice'
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in script
+    $ ui.interact()
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/_layout/screen_load_save.rpym", line 35, in <module>
+    $ ui.interact()
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  [Previous line repeated 1 more time]
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 593, in execute
+    screen save():
+  File "game/screens.rpy", line 593, in execute
+    screen save():
+  File "game/screens.rpy", line 597, in execute
+    use file_slots(_("Save"))
+  File "game/screens.rpy", line 607, in execute
+    screen file_slots(title):
+  File "game/screens.rpy", line 607, in execute
+    screen file_slots(title):
+  File "game/screens.rpy", line 611, in execute
+    use game_menu(title):
+  File "game/screens.rpy", line 430, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 430, in execute
+    screen game_menu(title, scroll=None, yinitial=0.0):
+  File "game/screens.rpy", line 434, in execute
+    add gui.main_menu_background
+  File "game/screens.rpy", line 434, in <module>
+    add gui.main_menu_background
+AttributeError: 'StoreModule' object has no attribute 'main_menu_background'
 
 Windows-10-10.0.22621 AMD64
-Ren'Py 8.1.1.23060707
+Ren'Py 8.0.3.22090809
 test01 1.0
-Fri Aug 18 17:24:46 2023
+Wed May 29 05:09:13 2024

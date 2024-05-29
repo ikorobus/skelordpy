@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 67: style property left_bar appears twice.
-    left_bar "gui/slider/slider_barra_der.png"
-            ^
+File "game/screens.rpy", line 357: end of line expected.
+    if main_menu:
+    ^
 
-Ren'Py Version: Ren'Py 8.1.1.23060707
-Fri Aug 18 17:46:49 2023
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Wed May 29 05:41:50 2024
