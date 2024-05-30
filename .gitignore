@@ -1,0 +1,7 @@
+
+*.rpyb
+*.rpyc
+game/saves/persistent
+*.save
+game/cache/shaders.txt
+log.txt
