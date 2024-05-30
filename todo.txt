@@ -1,4 +1,3 @@
 - titulo -> logo
 - script -> sprites
 y ya !
-quiza: sonido?
