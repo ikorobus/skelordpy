@@ -443,6 +443,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     style_prefix "game_menu"
 
+    if main_menu:
+        add gui.game_menu_background 
     # add gui.main_menu_background
 
     frame:
@@ -734,8 +736,6 @@ style slot_button_text:
 screen preferences():
 
     tag menu
-
-    # add gui.game_menu_background  
 
     use game_menu(_("Preferences"), scroll="viewport"):
 

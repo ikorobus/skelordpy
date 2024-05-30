@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 267: expected 'image_name_component' not found.
-    show "fade.png"
-         ^
+File "game/screens.rpy", line 898: Line is indented, but the preceding tag statement does not expect a block. Please check this line's indentation.
+    add gui.game_menu_background 
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed May 29 05:53:42 2024
+Thu May 30 04:36:15 2024
