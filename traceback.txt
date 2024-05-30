@@ -1,22 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 267, in script
-    add "fade.png"
-Exception: Sayer 'add' is not defined.
+  File "game/script.rpy", line 300, in script
+    r "I'll... uh... I'll just call you chum. Fits you pretty well."
+  File "game/script.rpy", line 60, in speaker_callback
+    renpy.sound.queue(renpy.random.choice(sounds), fadein=0.01, fadeout = 0.01)
+TypeError: queue() got an unexpected keyword argument 'fadeout'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 267, in script
-    add "fade.png"
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\ast.py", line 881, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\ast.py", line 774, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'add' is not defined.
+  File "game/script.rpy", line 300, in script
+    r "I'll... uh... I'll just call you chum. Fits you pretty well."
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\ast.py", line 921, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\exports.py", line 1373, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\character.py", line 1266, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\character.py", line 927, in do_display
+    display_say(who,
+  File "C:\Users\Cynthia\Descargas\programas\RENPY\renpy-8.0.3-sdk\renpy\character.py", line 602, in display_say
+    c("show", interact=interact, type=type, **cb_args)
+  File "game/script.rpy", line 60, in speaker_callback
+    renpy.sound.queue(renpy.random.choice(sounds), fadein=0.01, fadeout = 0.01)
+TypeError: queue() got an unexpected keyword argument 'fadeout'
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.0.3.22090809
 test01 1.0
-Wed May 29 05:53:36 2024
+Thu May 30 01:55:16 2024

@@ -65,10 +65,10 @@ init python:
             speaking = name
         elif event == "slow_done":
             speaking = None
-            renpy.sound.stop(fadeout=0.01)
+            renpy.sound.stop(fadeout=0.5)
         elif event == "end":
             speaking = None
-            renpy.sound.stop(fadeout=0.01)
+            renpy.sound.stop(fadeout=0.5)
   
     # Curried form of the same.
     speaker = renpy.curry(speaker_callback)
@@ -340,4 +340,9 @@ label start:
     r "...\\ \n \% "
 
     # This ends the game.
+
+
+    hide ridle
+    hide rjaw
+    with Dissolve(2)
     return

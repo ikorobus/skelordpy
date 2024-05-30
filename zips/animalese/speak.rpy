@@ -101,5 +101,5 @@ init python:
 
     #Speeds up the playback to make it sound more garbled and less decipherable.
     def change_playback_speed(sound, speed_change):
-        export = sound.speedup(6.0, 100, 30)
+        export = sound.speedup(6.0, 10, 30)
         return export
