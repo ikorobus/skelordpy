@@ -309,38 +309,68 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Start"):  
+                hover_sound "audio/hover.ogg"
+                activate_sound "audio/hover.ogg"
+                action Start()
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            textbutton _("History") :
+                hover_sound "audio/hover.ogg"
+                activate_sound "audio/hover.ogg"
+                action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("Save"):
+                hover_sound "audio/hover.ogg"
+                activate_sound "audio/hover.ogg"
+                action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        textbutton _("Load"):
+            hover_sound "audio/hover.ogg"
+            activate_sound "audio/hover.ogg"
+            action ShowMenu("load")
 
-        textbutton _("Options") action ShowMenu("preferences")
+        textbutton _("Options"):
+            hover_sound "audio/hover.ogg"
+            activate_sound "audio/hover.ogg"
+            action ShowMenu("preferences")
 
         if _in_replay:
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
+            textbutton _("End Replay"):
+                hover_sound "audio/hover.ogg"
+                activate_sound "audio/hover.ogg"
+                action EndReplay(confirm=True)
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("Main Menu"):
+                hover_sound "audio/hover.ogg"
+                activate_sound "audio/hover.ogg"
+                action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        textbutton _("About"):
+            hover_sound "audio/hover.ogg"
+            activate_sound "audio/hover.ogg"
+            action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            textbutton _("Help"):
+                hover_sound "audio/hover.ogg"
+                activate_sound "audio/hover.ogg"
+                action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            textbutton _("Quit"): 
+                hover_sound "audio/hover.ogg"
+                activate_sound "audio/hover.ogg"
+                action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button

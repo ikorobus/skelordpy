@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 898: Line is indented, but the preceding tag statement does not expect a block. Please check this line's indentation.
-    add gui.game_menu_background 
-    ^
+File "game/screens.rpy", line 294: 'define' is not a keyword argument or valid child for the screen statement.
+    define sound = "audio/hover.ogg"
+          ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu May 30 04:36:15 2024
+Thu May 30 05:25:35 2024
